@@ -1,0 +1,51 @@
+<style>
+    header.itemheader {
+        display: flex;
+    }
+    div.grabcontainer {
+        flex-grow: 2;
+        cursor: grab;
+    }
+    hr.grabbar {
+        height: 1px;
+        margin: 2px 0px;
+        border: 1px outset #fff;
+    }
+    .menu {
+        position: absolute;
+        display: none;
+        border: 1px inset #fff;
+        border-width: 0px 1px 1px 0px;
+        padding: 2px;
+    }
+    .itemheader:has(div .menuicon:hover) ~ .menu, .menu:hover {
+        background-color: #d4d4d4;
+        display: block;
+    }
+
+</style>
+
+<div style="background: #d4d4d4; width: 300px; padding: 2px 4px 4px 4px;">
+    <header class="itemheader">
+        <div style="display: flex; flex-grow: 2; gap: 4px;">
+            <span class="menuicon">&#62;</span>
+            <div class="grabcontainer">
+                <hr class="grabbar"/>
+                <hr class="grabbar"/>
+                <hr class="grabbar"/>
+            </div>
+        </div>
+        <span style="margin: 0px 4px">Hello World!</span>
+        <div class="grabcontainer">
+            <hr class="grabbar"/>
+            <hr class="grabbar"/>
+            <hr class="grabbar"/>
+        </div>
+    </header>
+    <div class="menu">
+        <a>item</a></br>
+        <a>item</a></br>
+        <a>item</a></br>
+    </div>
+    <img src="ac7.jpg" style="width: 100%; height: auto; border: inset 1px #fff; box-sizing: border-box;"/>
+</div>
