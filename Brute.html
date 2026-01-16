@@ -1,41 +1,82 @@
 <style>
+    body {
+        margin: 0px;
+        padding: 20px;
+        background-image: url("stone-wall-texture.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: right top;
+    }
+    .itemcontainer {
+        position: absolute;
+        background-color: #d4d4d4;
+        border: 1px outset #fff;
+        box-sizing: border-box;
+        padding: 4px;
+        width: 300px;
+        display: grid;
+        gap: 4px;
+        filter: drop-shadow(0px 0px 5px #00000055);
+    }
     header.itemheader {
         display: flex;
+        gap: 4px;
+        align-items: center;
+        height: 13px;
     }
     div.grabcontainer {
+        height: 13px;
         flex-grow: 2;
         cursor: grab;
+        display: grid;
+        place-items: center;
+        gap: 2px;
+        padding: 0px 1px;
+    }
+    div.grabcontainer:active {
+        cursor: grabbing;
     }
     hr.grabbar {
+        width: 100%;
         height: 1px;
-        margin: 2px 0px;
+        margin: 0px;
         border: 1px outset #fff;
     }
-    .menu {
+    span.itemtitle {
+        text-align: center;
+        font-family: serif;
+        user-select: none;
+        margin: 0px;
+        padding: 0px;
+        border: none;
+        background-color: transparent;;
+        cursor: default;
+    }
+    span:focus {outline:none;}
+    div.menu {
         position: absolute;
+        transform: translateY(17px);
         display: none;
         border: 1px inset #fff;
         border-width: 0px 1px 1px 0px;
         padding: 2px;
     }
-    .itemheader:has(div .menuicon:hover) ~ .menu, .menu:hover {
+    header.itemheader:has(span:hover) ~ div.menu, div.menu:hover {
         background-color: #d4d4d4;
         display: block;
     }
 
 </style>
+<body>
 
-<div style="background: #d4d4d4; width: 300px; padding: 2px 4px 4px 4px;">
-    <header class="itemheader">
-        <div style="display: flex; flex-grow: 2; gap: 4px;">
-            <span class="menuicon">&#62;</span>
-            <div class="grabcontainer">
-                <hr class="grabbar"/>
-                <hr class="grabbar"/>
-                <hr class="grabbar"/>
-            </div>
+<div class="itemcontainer" id="item1">
+    <header class="itemheader" id="item1header">
+        <div class="grabcontainer">
+            <hr class="grabbar"/>
+            <hr class="grabbar"/>
+            <hr class="grabbar"/>
         </div>
-        <span style="margin: 0px 4px">Hello World!</span>
+        <span class="itemtitile" contenteditable>Hello World!</span>
         <div class="grabcontainer">
             <hr class="grabbar"/>
             <hr class="grabbar"/>
@@ -49,3 +90,49 @@
     </div>
     <img src="ac7.jpg" style="width: 100%; height: auto; border: inset 1px #fff; box-sizing: border-box;"/>
 </div>
+<script async>
+//Make the DIV element draggagle:
+dragElement(document.getElementById("item1"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if ($("#" + elmnt.id + "header > .grabcontainer")) {
+    /* if present, the header is where you move the DIV from:*/
+    $("#" + elmnt.id + "header > .grabcontainer").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+</body>
