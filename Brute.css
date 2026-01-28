@@ -1,16 +1,17 @@
 body {
     width: 100%;
-    height: 100%;
-    display: grid;
+    height: 100vh;
+    /* display: grid;
     grid-template-areas:
         "header header"
         "sidebar menu"
-        "sidebar content";
+        "sidebar content"; */
     grid-template-columns: 300px auto;
     grid-template-rows: auto auto 100%;
     margin: 0px;
     background-color: #fff;
     font-family: Arial, sans-serif;
+    overflow: hidden;
     /* color: white; */
 }
 
@@ -71,4 +72,45 @@ div.gridarea {
     padding: 10px;
     background-color: #f9f9f9;
     z-index: -1;
+}
+
+div.groupingcolumn {
+    min-width: 300px;
+    width: 300px;
+    min-height: fit-content;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0px 1px 6px 0px #e0e0e0cc;
+    display: grid;
+    grid-template-areas:
+        "header checkbox"
+        "content content";
+    padding: 12px;
+    gap: 6px;
+    resize: both;
+    overflow: auto;
+}
+
+div.groupingcolumn h1 {
+    grid-area: header;
+    margin: 0;
+    font-size: 20px;
+    height: fit-content;
+}
+div.groupingcolumn input[type="checkbox"] {
+    grid-area: checkbox;
+    justify-self: end;
+    align-self: start;
+    width: 20px;
+    height: 20px;
+}
+div.groupingcolumn img {
+    grid-area: content;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+*:active, *:focus {
+    outline: none;
 }
