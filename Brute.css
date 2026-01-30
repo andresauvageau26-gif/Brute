@@ -28,12 +28,14 @@ header.gridarea {
     background-color: #fff;
     z-index: 10;
 }
+
 header.gridarea .breadcrumbs {
     display: flex;
     gap: 8px;
     align-items: center;
     font-size: 24px;
 }
+
 header.gridarea .breadcrumbs .title {
     color: #666;
 }
@@ -75,48 +77,48 @@ div.gridarea {
 }
 
 div.groupingcolumn {
+    display: flex;
+    flex-direction: column;
     min-height: fit-content;
     width: fit-content;
     background-color: #fff;
     border: 1px solid #e0e0e0;
     border-radius: 12px;
-    box-shadow: 0px 1px 6px 0px #e0e0e0cc;
-    padding: 0px;
+    box-shadow: 0px 1px 6px 0px #f0f0f0;
+    padding: 12px 12px 0px 12px;
+    transition: all 0.2s ease;
+}
+
+div.groupingcolumn:hover {
+    box-shadow: 0px 4px 12px 0px #d0d0d0;
+}
+
+div.groupingcolumn:has(*:focus) {
+    border: 1px solid #333;
+    box-shadow: 0px 4px 12px 0px #d0d0d0;
+}
+
+div.groupingcolumn header {
+    height: 18px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-div.groupingcolumncontent::after {
-    content: "";
-    grid-area: resize;
-    /* position: absolute; */
-    /* margin-left: calc(100% - 12px); */
-    width: 12px;
-    height: 12px;
-    background-color: red;
-    transform: translateY(12px) translateX(12px);
+    gap: 8px;
+    align-items: top;
+    margin-bottom: 12px;
 }
 
-div.groupingcolumncontent {
-    display: grid;
-    grid-template-areas:
-        "header checkbox"
-        "content content"
-        "padding resize";
-    grid-template-columns: auto 12px;
-    gap: 6px;
-    min-width: 300px;
-    width: 300px;
-    resize: horizontal;
-    overflow: auto;
-    padding: 12px;
-    /* padding-bottom: 0px; */
+div.groupingcolumn:has(header > label input[type="checkbox"]:checked) header {
+    margin-bottom: 0px;
 }
 
-div.groupingcolumn h1 {
-    grid-area: header;
-    margin: 0;
-    font-size: 20px;
+div.groupingcolumn header label {
+    display: block;
+    grid-area: checkbox;
+}
+
+div.groupingcolumn header h1 {
+    display: block;
+    margin: 0px;
+    font-size: 17px;
     height: fit-content;
 }
 
@@ -127,20 +129,34 @@ div.groupingcolumn input[type="checkbox"] {
     height: 0;
     width: 0;
 }
-div.groupingcolumn input[type="checkbox"] ~ span {
+
+div.groupingcolumn input[type="checkbox"]~span {
     display: inline-block;
-    width: 12px;
-    height: 12px;
-    transform: translateY(-1px);
-}
-div.groupingcolumn input[type="checkbox"] ~ span:hover {
-    background: #e0e0e0;
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
+    transition: all 0.2s ease;
 }
 
-div.groupingcolumn input[type="checkbox"]:checked ~ span::after {
+div.groupingcolumn input[type="checkbox"]~span:hover {
+    background: #eee;
+}
+
+div.groupingcolumn input[type="checkbox"]~span:hover::after {
     content: "";
     display: block;
-    margin: 3px;
+    transform: translateY(3px) translateX(3px);
+    width: 6px;
+    border: 0px solid #333;
+    border-width: 0px 0px 1px 0px;
+    margin: 5.5px 3px 3px 3px;
+    transition: all 0.2s ease;
+}
+
+div.groupingcolumn input[type="checkbox"]:checked~span::after {
+    content: "";
+    display: block;
+    margin: 5.5px 0px 0px 6.5px;
     width: 4px;
     height: 4px;
     border: 0px solid #333;
@@ -148,13 +164,58 @@ div.groupingcolumn input[type="checkbox"]:checked ~ span::after {
     transform: rotate(45deg);
 }
 
-div.groupingcolumn img {
+div.groupingcolumn span.resizeicon {
+    width: 12px;
+    height: 12px;
+    background-color: inherit;
+    margin-left: 100%;
+    border: 0px solid #ccc;
+    border-width: 0px 2px 2px 0px;
+    border-bottom-right-radius: 13px;
+    position: relative;
+    cursor: nw-resize;
+}
+div.groupingcolumn span.resizeicon:active {
+    cursor: nw-resize;
+}
+
+div.groupingcolumncontent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    min-width: 300px;
+    width: 300px;
+    overflow: none;
+    /* padding: 1px; */
+    /* padding-bottom: 0px; */
+}
+    
+div.groupingcolumncontent,
+div.groupingcolumncontent * {
+    transition: all 0.2s ease;
+    border-radius: 2px;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+div.groupingcolumn:has(header > label input[type="checkbox"]:checked) div.groupingcolumncontent,
+div.groupingcolumn:has(header > label input[type="checkbox"]:checked) div.groupingcolumncontent * {
+    opacity: 0;
+    height: 0px;
+    /* display: none; */
+    z-index: -1000;
+}
+
+div.groupingcolumncontent img {
     grid-area: content;
     width: 100%;
     height: auto;
     object-fit: cover;
-    opacity: 0.2;
 }
-*:active, *:focus {
+
+*:active,
+*:focus {
     outline: none;
 }
