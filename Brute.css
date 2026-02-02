@@ -1,11 +1,11 @@
 body {
     width: 100%;
     height: 100vh;
-    /* display: grid;
+    display: grid;
     grid-template-areas:
         "header header"
         "sidebar menu"
-        "sidebar content"; */
+        "sidebar content";
     grid-template-columns: 300px auto;
     grid-template-rows: auto auto 100%;
     margin: 0px;
@@ -26,7 +26,7 @@ header.gridarea {
     border-bottom: 1px solid #e0e0e0;
     padding: 10px;
     background-color: #fff;
-    z-index: 10;
+    z-index: 3;
 }
 
 header.gridarea .breadcrumbs {
@@ -53,6 +53,7 @@ menu.gridarea {
     /* background-color: #ccc; */
     padding: 10px;
     margin: 0px;
+    z-index: 2;
 }
 
 ul.gridarea {
@@ -64,7 +65,7 @@ ul.gridarea {
     padding: 10px;
     overflow: hidden;
     background-color: #fff;
-    z-index: 10;
+    z-index: 4;
 }
 
 div.gridarea {
@@ -73,7 +74,6 @@ div.gridarea {
     height: 100%;
     padding: 10px;
     background-color: #f9f9f9;
-    z-index: -1;
 }
 
 div.groupingcolumn {
@@ -83,7 +83,7 @@ div.groupingcolumn {
     width: fit-content;
     background-color: #fff;
     border: 1px solid #e0e0e0;
-    border-radius: 12px;
+    border-radius: 14px;
     box-shadow: 0px 1px 6px 0px #f0f0f0;
     padding: 12px 12px 0px 12px;
     transition: all 0.2s ease;
@@ -94,7 +94,7 @@ div.groupingcolumn:hover {
 }
 
 div.groupingcolumn:has(*:focus) {
-    border: 1px solid #333;
+    border: 1px solid #c5c5c5;
     box-shadow: 0px 4px 12px 0px #d0d0d0;
 }
 
@@ -139,7 +139,10 @@ div.groupingcolumn input[type="checkbox"]~span {
 }
 
 div.groupingcolumn input[type="checkbox"]~span:hover {
-    background: #eee;
+    background: #f0f0f0;
+}
+div.groupingcolumn input[type="checkbox"]~span:active {
+    background: #e8e8e8;
 }
 
 div.groupingcolumn input[type="checkbox"]~span:hover::after {
@@ -147,7 +150,7 @@ div.groupingcolumn input[type="checkbox"]~span:hover::after {
     display: block;
     transform: translateY(3px) translateX(3px);
     width: 6px;
-    border: 0px solid #333;
+    border: 0px solid #838383;
     border-width: 0px 0px 1px 0px;
     margin: 5.5px 3px 3px 3px;
     transition: all 0.2s ease;
@@ -159,7 +162,7 @@ div.groupingcolumn input[type="checkbox"]:checked~span::after {
     margin: 5.5px 0px 0px 6.5px;
     width: 4px;
     height: 4px;
-    border: 0px solid #333;
+    border: 0px solid #838383;
     border-width: 0px 1px 1px 0px;
     transform: rotate(45deg);
 }
@@ -169,14 +172,15 @@ div.groupingcolumn span.resizeicon {
     height: 12px;
     background-color: inherit;
     margin-left: 100%;
-    border: 0px solid #ccc;
+    border: 0px solid #d8d8d8;
     border-width: 0px 2px 2px 0px;
-    border-bottom-right-radius: 13px;
+    border-bottom-right-radius: 12px;
     position: relative;
     cursor: nw-resize;
+    transition: all 0.2s ease;
 }
 div.groupingcolumn span.resizeicon:active {
-    cursor: nw-resize;
+    border-color: #ccc;
 }
 
 div.groupingcolumncontent {
