@@ -1,225 +1,233 @@
 body {
-    width: 100%;
-    height: 100vh;
-    display: grid;
-    grid-template-areas:
-        "header header"
-        "sidebar menu"
-        "sidebar content";
-    grid-template-columns: 300px auto;
-    grid-template-rows: auto auto 100%;
-    margin: 0px;
-    background-color: #fff;
-    font-family: Arial, sans-serif;
-    overflow: hidden;
-    /* color: white; */
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar menu"
+    "sidebar content";
+  grid-template-columns: 300px auto;
+  grid-template-rows: auto auto 100%;
+  margin: 0px;
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  /* color: white; */
 }
 
 * {
-    /* color: white; */
-    box-sizing: border-box;
+  /* color: white; */
+  box-sizing: border-box;
 }
 
 header.gridarea {
-    grid-area: header;
-    display: flex;
-    border-bottom: 1px solid #e0e0e0;
-    padding: 10px;
-    background-color: #fff;
-    z-index: 3;
+  grid-area: header;
+  display: flex;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px;
+  background-color: #fff;
+  z-index: 3;
 }
 
 header.gridarea .breadcrumbs {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    font-size: 24px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 24px;
 }
 
 header.gridarea .breadcrumbs .title {
-    color: #666;
+  color: #666;
 }
 
 .gridarea h1 {
-    margin: 0;
-    font-size: 24px;
-    flex-grow: 1;
-    /* color: #333; */
+  margin: 0;
+  font-size: 24px;
+  flex-grow: 1;
+  /* color: #333; */
 }
 
 menu.gridarea {
-    grid-area: menu;
-    box-shadow: 0px 1px 6px 0px #e0e0e0cc;
-    /* background-color: #ccc; */
-    padding: 10px;
-    margin: 0px;
-    z-index: 2;
+  grid-area: menu;
+  box-shadow: 0px 1px 6px 0px #e0e0e0cc;
+  /* background-color: #ccc; */
+  padding: 10px;
+  margin: 0px;
+  z-index: 2;
 }
 
 ul.gridarea {
-    grid-area: sidebar;
-    border-right: 1px solid #e0e0e0;
-    height: 100%;
-    list-style-type: none;
-    margin: 0;
-    padding: 10px;
-    overflow: hidden;
-    background-color: #fff;
-    z-index: 4;
+  grid-area: sidebar;
+  border-right: 1px solid #e0e0e0;
+  height: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 10px;
+  overflow: hidden;
+  background-color: #fff;
+  z-index: 4;
 }
 
 div.gridarea {
-    grid-area: content;
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-    background-color: #f9f9f9;
+  grid-area: content;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  /* background: #f9f9f9; */
+  background: url('https://i0.wp.com/picjumbo.com/wp-content/uploads/green-natural-background-with-wooden-surface-free-image.jpeg?w=2210&quality=70') no-repeat center center fixed;
 }
 
 div.groupingcolumn {
-    display: flex;
-    flex-direction: column;
-    min-height: fit-content;
-    width: fit-content;
-    background-color: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 14px;
-    box-shadow: 0px 1px 6px 0px #f0f0f0;
-    padding: 12px 12px 0px 12px;
-    transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: fit-content;
+  width: fit-content;
+  background-color: #a9a9a947;
+  backdrop-filter: brightness(1.5) blur(30px);
+  border: 1px solid #ffffff3b;
+  border-radius: 14px;
+  box-shadow: 0px 1px 6px 0px #0000001c;
+  padding: 12px 12px 0px 12px;
+  transition: all 0.2s ease;
 }
 
 div.groupingcolumn:hover {
-    box-shadow: 0px 4px 12px 0px #d0d0d0;
+  box-shadow: 0px 4px 12px 0px #00000023;
 }
 
 div.groupingcolumn:has(*:focus) {
-    border: 1px solid #c5c5c5;
-    box-shadow: 0px 4px 12px 0px #d0d0d0;
-}
-
-div.groupingcolumn header {
-    height: 18px;
-    display: flex;
-    gap: 8px;
-    align-items: top;
-    margin-bottom: 12px;
-}
-
-div.groupingcolumn:has(header > label input[type="checkbox"]:checked) header {
-    margin-bottom: 0px;
-}
-
-div.groupingcolumn header label {
-    display: block;
-    grid-area: checkbox;
-}
-
-div.groupingcolumn header h1 {
-    display: block;
-    margin: 0px;
-    font-size: 17px;
-    height: fit-content;
-}
-
-div.groupingcolumn input[type="checkbox"] {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-}
-
-div.groupingcolumn input[type="checkbox"]~span {
-    display: inline-block;
-    width: 18px;
-    height: 18px;
-    border-radius: 2px;
-    transition: all 0.2s ease;
-}
-
-div.groupingcolumn input[type="checkbox"]~span:hover {
-    background: #f0f0f0;
-}
-div.groupingcolumn input[type="checkbox"]~span:active {
-    background: #e8e8e8;
-}
-
-div.groupingcolumn input[type="checkbox"]~span:hover::after {
-    content: "";
-    display: block;
-    transform: translateY(3px) translateX(3px);
-    width: 6px;
-    border: 0px solid #838383;
-    border-width: 0px 0px 1px 0px;
-    margin: 5.5px 3px 3px 3px;
-    transition: all 0.2s ease;
-}
-
-div.groupingcolumn input[type="checkbox"]:checked~span::after {
-    content: "";
-    display: block;
-    margin: 5.5px 0px 0px 6.5px;
-    width: 4px;
-    height: 4px;
-    border: 0px solid #838383;
-    border-width: 0px 1px 1px 0px;
-    transform: rotate(45deg);
+  border: 1px solid #b5b5b536;
+  box-shadow: 0px 1px 6px 0px #00000020;
 }
 
 div.groupingcolumn span.resizeicon {
-    width: 12px;
-    height: 12px;
-    background-color: inherit;
-    margin-left: 100%;
-    border: 0px solid #d8d8d8;
-    border-width: 0px 2px 2px 0px;
-    border-bottom-right-radius: 12px;
-    position: relative;
-    cursor: nw-resize;
-    transition: all 0.2s ease;
+  width: 10px;
+  height: 10px;
+  margin: 0px 0px 2px 100%;
+  border: 0px solid #d7d7d752;
+  border-width: 0px 2px 2px 0px;
+  border-bottom-right-radius: 12px;
+  cursor: nw-resize;
+  transition: all 0.2s ease;
 }
 div.groupingcolumn span.resizeicon:active {
-    border-color: #ccc;
+  width: 12px;
+  height: 12px;
+  margin-bottom: 0px;
+  border: 0px solid #d7d7d752;
+  border-width: 0px 4px 4px 0px;
+}
+
+div.groupingcolumn header {
+  height: 18px;
+  display: flex;
+  gap: 8px;
+  align-items: top;
+  margin-bottom: 12px;
+}
+
+div.groupingcolumn:has(header > label input[type="checkbox"]:checked) header {
+  margin-bottom: 0px;
+}
+
+div.groupingcolumn header label {
+  display: block;
+  grid-area: checkbox;
+}
+
+div.groupingcolumn header h1 {
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  display: block;
+  margin: 0px;
+  font-size: 17px;
+  height: fit-content;
+}
+
+div.groupingcolumn input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+div.groupingcolumn input[type="checkbox"]~span {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+div.groupingcolumn input[type="checkbox"]~span:hover {
+  background: #a1a1a124;
+}
+div.groupingcolumn input[type="checkbox"]~span:active {
+  background: #a1a1a131;
+}
+
+div.groupingcolumn input[type="checkbox"]~span:hover::after {
+  content: "";
+  display: block;
+  transform: translateY(3px) translateX(3px);
+  width: 6px;
+  border: 0px solid #838383;
+  border-width: 0px 0px 1px 0px;
+  margin: 5.5px 3px 3px 3px;
+  transition: all 0.2s ease;
+}
+
+div.groupingcolumn input[type="checkbox"]:checked~span::after {
+  content: "";
+  display: block;
+  margin: 5.5px 0px 0px 6.5px;
+  width: 4px;
+  height: 4px;
+  border: 0px solid #838383;
+  border-width: 0px 1px 1px 0px;
+  transform: rotate(45deg);
 }
 
 div.groupingcolumncontent {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 12px;
-    min-width: 300px;
-    width: 300px;
-    overflow: none;
-    /* padding: 1px; */
-    /* padding-bottom: 0px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  min-width: 300px;
+  width: 300px;
+  overflow: none;
+  /* padding: 1px; */
+  /* padding-bottom: 0px; */
 }
-    
+  
 div.groupingcolumncontent,
 div.groupingcolumncontent * {
-    transition: all 0.2s ease;
-    border-radius: 2px;
-    margin: 0;
-    font-size: 14px;
-    line-height: 1.4;
+  transition: all 0.2s ease;
+  border-radius: 2px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
 }
 
 div.groupingcolumn:has(header > label input[type="checkbox"]:checked) div.groupingcolumncontent,
 div.groupingcolumn:has(header > label input[type="checkbox"]:checked) div.groupingcolumncontent * {
-    opacity: 0;
-    height: 0px;
-    /* display: none; */
-    z-index: -1000;
+  opacity: 0;
+  height: 0px;
+  /* display: none; */
+  z-index: -1000;
 }
 
 div.groupingcolumncontent img {
-    grid-area: content;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+  grid-area: content;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 *:active,
 *:focus {
-    outline: none;
+  outline: none;
 }
