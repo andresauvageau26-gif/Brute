@@ -1,5 +1,5 @@
   const box = document.getElementById("groupingcolumn");
-  const header = document.getElementById("groupingcolumnheader");
+  const header = document.getElementsByClassName("moveicon")[0];
 
   // Required so left/top actually work
 //   box.style.position = "absolute";
@@ -63,7 +63,9 @@
     const newHeight = startHeight + (e.clientY - startY);
 
     // Optional minimum size
-    box.style.width = Math.max(newWidth, 200) + "px";
+    let sWidth = Math.max(Math.min(newWidth, 700), 200);
+    sWidth = Math.round(sWidth/100)
+    box.style.width = sWidth + "24px";
     // box.style.height = Math.max(newHeight, 150) + "px";
   }
 
