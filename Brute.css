@@ -73,8 +73,9 @@ div.gridarea {
   width: 100%;
   height: 100%;
   padding: 10px;
-  background: #f9f9f9;
-  /* background: url('https://i0.wp.com/picjumbo.com/wp-content/uploads/green-natural-background-with-wooden-surface-free-image.jpeg?w=2210&quality=70') no-repeat center center fixed; */
+  /* background: #f9f9f9; */
+  overflow: scroll;
+  background: url('https://i0.wp.com/picjumbo.com/wp-content/uploads/green-natural-background-with-wooden-surface-free-image.jpeg?w=2210&quality=70') no-repeat center center fixed;
 }
 
 div.groupingcolumn {
@@ -103,6 +104,14 @@ div.groupingcolumn:has(*:focus) {
   box-shadow: 0px 1px 6px 0px #00000020;
 }
 
+div.groupingcolumn span.moveicon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: red;
+  border-radius: 2px;
+}
+
 div.groupingcolumn span.resizeicon {
   width: 10px;
   height: 10px;
@@ -113,6 +122,7 @@ div.groupingcolumn span.resizeicon {
   cursor: nw-resize;
   transition: all 0.2s ease;
 }
+
 div.groupingcolumn span.resizeicon:active {
   width: 12px;
   height: 12px;
@@ -139,14 +149,11 @@ div.groupingcolumn header label {
 }
 
 div.groupingcolumn header h1 {
-  font-family: "Space Grotesk", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: bold;
-  font-style: normal;
   display: block;
   margin: 0px;
-  font-size: 17px;
+  font-size: 22px;
   height: fit-content;
+  transform: translateY(-7px)
 }
 
 div.groupingcolumn input[type="checkbox"] {
@@ -200,7 +207,7 @@ div.groupingcolumncontent {
   justify-content: center;
   gap: 12px;
   min-width: 300px;
-  overflow: none;
+  overflow: hidden;
   /* padding: 1px; */
   /* padding-bottom: 0px; */
 }
@@ -218,6 +225,7 @@ div.groupingcolumn:has(header > label input[type="checkbox"]:checked) div.groupi
 div.groupingcolumn:has(header > label input[type="checkbox"]:checked) div.groupingcolumncontent * {
   opacity: 0;
   height: 0px;
+  filter: blur(2px);
   /* display: none; */
   z-index: -1000;
 }
