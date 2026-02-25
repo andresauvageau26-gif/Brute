@@ -7,7 +7,7 @@ body {
     "sidebar menu"
     "sidebar content";
   grid-template-columns: 240px auto;
-  grid-template-rows: auto auto 100%;
+  grid-template-rows: auto 48px 100%;
   margin: 0px;
   background-color: #fff;
   font-family: Arial, sans-serif;
@@ -54,6 +54,46 @@ menu.gridarea {
   padding: 10px;
   margin: 0px;
   z-index: 2;
+}
+
+form.inline-radio {
+  width: fit-content;
+  height: 24px;
+  display: flex;
+  background: #f5f5f5;
+  border-radius: 6px;
+  font-size: 13px;
+}
+form.inline-radio label {
+  height: 24px;
+  padding: 0px 9px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  /* background: #e0e0e0; */
+  border-radius: 6px;
+  transition: background-color 0.15s;
+}
+form.inline-radio label:has(input:checked) {
+  background: #fff;
+}
+
+form.inline-radio label:has(input:not(:checked)) + label:has(input:not(:checked)) {
+  padding-left: 8px;
+}
+
+form.inline-radio label:has(input:not(:checked)) + label:has(input:not(:checked))::before {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 16px;
+  background: #dfdfdf;
+  transform: translateX(-9px);
+}
+
+form.inline-radio label input[type="radio"] {
+  display: none;
 }
 
 ul.gridarea {
