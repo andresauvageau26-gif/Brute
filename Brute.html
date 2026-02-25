@@ -21,9 +21,20 @@
         </div>
     </header>
     <menu class="gridarea">
-        <button onclick="location.href='Brute.html'">1</button>
-        <button onclick="location.href='Brute.html'">2</button>
-        <button onclick="location.href='Brute.html'">3</button>
+        <form class="inline-radio">
+            <label>
+                <input type="radio" name="text-type" value="text" checked>
+                <i class="fa-solid fa-t"></i>
+            </label>
+            <label>
+                <input type="radio" name="text-type" value="document">
+                <i class="fa-solid fa-file-lines"></i>
+            </label>
+            <label>
+                <input type="radio" name="text-type" value="code">
+                <i class="fa-solid fa-terminal"></i>
+            </label>
+        </form>
     </menu>
     <ul class="gridarea">
         <li><textarea placeholder="Type something here..." class="note"></textarea></li>
@@ -34,6 +45,7 @@
             <li><i class="fa-solid fa-image"></i></li>
             <li><i class="fa-solid fa-microphone-lines"></i></li>
             <li><i class="fa-solid fa-clapperboard"></i></li>
+            <li><i class="fa-solid fa-folder"></i></li>
         </section>
     </ul>
     <div class="gridarea">
