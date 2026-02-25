@@ -8,6 +8,10 @@ ul.gridarea {
 
 ul.gridarea li {
     margin: 0px;
+    transition: all 0.15s ease;
+}
+ul.gridarea li:hover {
+    transform: scale(0.95);
 }
 
 ul.gridarea section {
@@ -37,6 +41,6 @@ ul.gridarea li textarea.note {
     grid-column-end: span 3;
     width: 100%;
     min-height: 176px;
-    padding: 3px;
+    padding: 9px;
     resize: none;
 }
