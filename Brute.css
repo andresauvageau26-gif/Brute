@@ -101,21 +101,17 @@ form.inline-input {
   width: fit-content;
   height: 24px;
   display: flex;
+  gap: 9px;
   font-size: 13px;
 }
-form.inline-radio label {
+form.inline-input label input {
+  min-width: 36px;
+  width: fit-content;
+  height: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  /* background: #e0e0e0; */
-  border-radius: 6px;
-  transition: background-color 0.15s;
-}
-form.inline-radio label input {
-  min-width: 36px;
-  width: fit-content;
-  height: 24px;
   padding: 0px 9px;
   background: #f5f5f5;
   border-radius: 6px;
