@@ -77,6 +77,7 @@ form.inline-radio label {
 }
 form.inline-radio label:has(input:checked) {
   background: #fff;
+  box-shadow: 0px 1px 6px 0px #0000001c;
 }
 
 form.inline-radio label:has(input:not(:checked)) + label:has(input:not(:checked)) {
@@ -94,6 +95,31 @@ form.inline-radio label:has(input:not(:checked)) + label:has(input:not(:checked)
 
 form.inline-radio label input[type="radio"] {
   display: none;
+}
+
+form.inline-input {
+  width: fit-content;
+  height: 24px;
+  display: flex;
+  font-size: 13px;
+}
+form.inline-radio label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  /* background: #e0e0e0; */
+  border-radius: 6px;
+  transition: background-color 0.15s;
+}
+form.inline-radio label input {
+  min-width: 36px;
+  width: fit-content;
+  height: 24px;
+  padding: 0px 9px;
+  background: #f5f5f5;
+  border-radius: 6px;
+  border: none;
 }
 
 ul.gridarea {
