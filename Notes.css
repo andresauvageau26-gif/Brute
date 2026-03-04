@@ -1,46 +1,52 @@
 ul.gridarea {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    list-style-type: none;
-    margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style-type: none;
+  margin: 0;
 }
 
 ul.gridarea li {
-    margin: 0px;
-    transition: all 0.15s ease;
+  margin: 0px;
+  transition: all 0.15s ease;
 }
 ul.gridarea li:hover {
-    transform: scale(0.95);
+  transform: scale(0.95);
 }
 
 ul.gridarea section {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    gap: 12px;
-    list-style-type: none;
-    margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 12px;
+  list-style-type: none;
+  margin: 0;
 }
 
-ul.gridarea li * {
-    border: 1px solid #a9a9a947;
-    border-radius: 6px;
-    box-shadow: 0px 1px 6px 0px #0000001c;
+ul.gridarea li > * {
+  border: 1px solid #a9a9a947;
+  border-radius: 6px;
+  box-shadow: 0px 1px 6px 0px #0000001c;
 }
 
 ul.gridarea li i.fa-solid {
-    width: 64px;
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* padding: auto; */
+  width: 64px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: auto; */
+}
+
+ul.gridarea li div:has(textarea.note) {
+  width: 100%;
 }
 
 ul.gridarea li textarea.note {
-    grid-column-end: span 3;
-    width: 100%;
-    min-height: 176px;
-    padding: 9px;
-    resize: none;
+  grid-column-end: span 3;
+  width: 100%;
+  min-height: 176px;
+  padding: 0px 9px 9px 9px;
+  resize: none;
+  border: none;
+  margin: 0;
 }

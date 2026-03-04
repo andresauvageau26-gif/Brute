@@ -51,7 +51,7 @@ menu.gridarea {
   grid-area: menu;
   box-shadow: 0px 1px 6px 0px #e0e0e0cc;
   display: flex;
-  gap: auto;
+  gap: 30px;
   /* background-color: #ccc; */
   padding: 12px;
   margin: 0px;
@@ -75,10 +75,12 @@ form.inline-radio label {
   box-sizing: border-box;
   /* background: #e0e0e0; */
   border-radius: 6px;
-  transition: background-color 0.15s;
+  transform: scale(0.9);
+  transition: transform 0.15s;
 }
 form.inline-radio label:has(input:checked) {
   background: #fff;
+  transform: scale(1);
   box-shadow: 0px 1px 6px 0px #0000001c;
 }
 
@@ -110,7 +112,7 @@ form.inline-input label {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3px;
+  gap: 6px;
 }
 form.inline-input label span {
   font-size: 10px;
@@ -164,7 +166,7 @@ div.groupingcolumn {
   border: 1px solid #ffffff3b;
   border-radius: 12px;
   box-shadow: 0px 1px 6px 0px #0000001c;
-  padding: 12px 12px 0px 12px;
+  padding: 0px 12px 0px 12px;
   /* transition: all 0.2s ease; */
 }
 
@@ -177,12 +179,24 @@ div.groupingcolumn:has(*:focus) {
   box-shadow: 0px 1px 6px 0px #00000020;
 }
 
-div.groupingcolumn span.moveicon {
+span.moveicon {
   display: inline-block;
-  width: 18px;
-  height: 18px;
-  background: red;
+  width: 48px;
+  height: 12px;
+  background: #ffffff00;
   border-radius: 2px;
+  margin: 0px auto;
+  cursor: move;
+  z-index: 2;
+}
+span.moveicon::after {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 4px;
+  margin: 4px 12px;
+  background-color: #ffffff85;
+  border-radius: 6px;
 }
 
 div.groupingcolumn span.resizeicon {
