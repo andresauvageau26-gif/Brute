@@ -1,5 +1,5 @@
   const box = document.getElementById("groupingcolumn");
-  const header = document.getElementsByClassName("moveicon")[0];
+  const header = document.getElementsByClassName("moveicon")[1];
 
   // Required so left/top actually work
 //   box.style.position = "absolute";

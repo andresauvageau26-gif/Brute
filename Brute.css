@@ -9,7 +9,7 @@ body {
   grid-template-columns: 240px auto;
   grid-template-rows: auto 48px 100%;
   margin: 0px;
-  background-color: #fff;
+  background-color: #f5f5f5;
   font-family: Arial, sans-serif;
   overflow: hidden;
   /* color: white; */
@@ -52,7 +52,7 @@ menu.gridarea {
   box-shadow: 0px 1px 6px 0px #e0e0e0cc;
   display: flex;
   gap: 30px;
-  /* background-color: #ccc; */
+  background-color: #fff;
   padding: 12px;
   margin: 0px;
   z-index: 2;
@@ -81,7 +81,7 @@ form.inline-radio label {
 form.inline-radio label:has(input:checked) {
   background: #fff;
   transform: scale(1);
-  box-shadow: 0px 1px 6px 0px #0000001c;
+  box-shadow: 0px 1px 3px 0px #0000000f;
 }
 
 form.inline-radio label:has(input:not(:checked)) + label:has(input:not(:checked)) {
@@ -116,7 +116,7 @@ form.inline-input label {
 }
 form.inline-input label span {
   font-size: 10px;
-  color: #9a9a9a;
+  color: #838383;
 }
 form.inline-input label input {
   width: 64px;
@@ -150,7 +150,7 @@ div.gridarea {
   padding: 10px;
   /* background: #f9f9f9; */
   overflow: scroll;
-  background: url('https://i0.wp.com/picjumbo.com/wp-content/uploads/green-natural-background-with-wooden-surface-free-image.jpeg?w=2210&quality=70') no-repeat center center fixed;
+  background: url('Peg.png') repeat center center fixed;
 }
 
 div.groupingcolumn {
@@ -161,8 +161,8 @@ div.groupingcolumn {
   /* width: fit-content; */
   min-width: 324px;
   width: 324px;
-  background-color: #a9a9a947;
-  backdrop-filter: brightness(1.5) blur(30px);
+  background-color: #dddddd24;
+  backdrop-filter: brightness(1.25) blur(1.5px);
   border: 1px solid #ffffff3b;
   border-radius: 12px;
   box-shadow: 0px 1px 6px 0px #0000001c;
@@ -183,7 +183,7 @@ span.moveicon {
   display: inline-block;
   width: 48px;
   height: 12px;
-  background: #ffffff00;
+  /* background: #ffffff00; */
   border-radius: 2px;
   margin: 0px auto;
   cursor: move;
@@ -195,7 +195,7 @@ span.moveicon::after {
   width: 24px;
   height: 4px;
   margin: 4px 12px;
-  background-color: #ffffff85;
+  background-color: #dcdcdc;
   border-radius: 6px;
 }
 
@@ -203,7 +203,7 @@ div.groupingcolumn span.resizeicon {
   width: 10px;
   height: 10px;
   margin: 0px 0px 2px 100%;
-  border: 0px solid #d7d7d752;
+  border: 0px solid #dcdcdc;
   border-width: 0px 2px 2px 0px;
   border-bottom-right-radius: 12px;
   cursor: nw-resize;
@@ -214,7 +214,7 @@ div.groupingcolumn span.resizeicon:active {
   width: 12px;
   height: 12px;
   margin-bottom: 0px;
-  border: 0px solid #d7d7d752;
+  border: 0px solid #dcdcdc;
   border-width: 0px 4px 4px 0px;
 }
 
@@ -260,10 +260,7 @@ div.groupingcolumn input[type="checkbox"]~span {
 }
 
 div.groupingcolumn input[type="checkbox"]~span:hover {
-  background: #a1a1a124;
-}
-div.groupingcolumn input[type="checkbox"]~span:active {
-  background: #a1a1a131;
+  background: #f5f5f5;
 }
 
 div.groupingcolumn input[type="checkbox"]~span:hover::after {
