@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wdth,wght@0,75..100,100..700;1,75..100,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.libre-barcode-39 {
+  font-family: "Libre Barcode 39", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.ibm-plex-sans {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.ibm-plex-serif {
+  font-family: "IBM Plex Serif", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.ibm-plex-sans.thin, .ibm-plex-serif.thin { font-weight: 100; }
+.ibm-plex-sans.extralight, .ibm-plex-serif.extralight { font-weight: 200;}
+.ibm-plex-sans.light, .ibm-plex-serif.light { font-weight: 300; }
+.ibm-plex-sans.regular, .ibm-plex-serif.regular { font-weight: 400; }
+.ibm-plex-sans.medium, .ibm-plex-serif.medium { font-weight: 500; }
+.ibm-plex-sans.bold, .ibm-plex-serif.bold { font-weight: 600; }
+.ibm-plex-sans.black, .ibm-plex-serif.black { font-weight: 700; }
+
+.ibm-plex-sans.italic, .ibm-plex-serif.italic { font-style: italic; }
+
+.ibm-plex-sans.condensed {
+  font-variation-settings:
+    "wdth" 75;
+}
+.ibm-plex-sans.semicondensed {
+  font-variation-settings:
+    "wdth" 87.5;
+}
+
+@font-face {
+  font-family: Alpenkreuzer;
+  src: url(Alpenkreuzer.ttf);
+}
+
+.alpenkreuzer { font-family: Alpenkreuzer, sans-serif; }
+
+.space-mono {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.space-mono.bold { font-weight: 700; }
+
+.space-mono.italic { font-style: italic; }
