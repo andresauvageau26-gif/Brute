@@ -48,10 +48,12 @@
     </menu>
     <ul class="gridarea">
         <li>
-            <div>
+            <div class="moveable textnote">
                 <span class="moveicon"></span>
                 <textarea placeholder="Type something here..." class="note"></textarea>
+                <span class="resizeicon"></span>
             </div>
+            <div id="notePlaceholder"><i>BRUTE</i></div>
         </li>
         <section>
             <li><i class="fa-solid fa-heading"></i></li>
@@ -61,21 +63,25 @@
             <li><i class="fa-solid fa-microphone-lines"></i></li>
             <li><i class="fa-solid fa-clapperboard"></i></li>
             <li><i class="fa-solid fa-folder"></i></li>
+            <li><i class="fa-solid fa-clipboard"></i></li>
         </section>
     </ul>
     <div class="gridarea">
-        <div class="groupingcolumn" id="groupingcolumn">
+        <div class="groupingcolumn moveable" id="groupingcolumn">
             <span class="moveicon"></span>
             <header id="groupingcolumnheader">
-                <h1 contenteditable autocorrect="off" class="ibm-plex-sans black">Test</h1>
+                <h1 contenteditable autocorrect="off" class="ibm-plex-serif black">Test</h1>
                 <label>
                     <input type="checkbox">
                     <span></span>
                 </label>
             </header>
             <div class="groupingcolumncontent">
-                <p contenteditable>
+                <div class="moveable">
+                    <span class="moveicon"></span>
                     <img src="ac7.jpg">
+                </div>
+                <p contenteditable>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
             </div>

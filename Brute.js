@@ -1,30 +1,28 @@
-  const box = document.getElementById("groupingcolumn");
-  const header = document.getElementsByClassName("moveicon")[1];
+document.querySelectorAll(".moveable").forEach((box) => {
+  const header = box.querySelector(".moveicon");
+  const resizeHandle = box.querySelector(".resizeicon");
 
-  // Required so left/top actually work
-//   box.style.position = "absolute";
-
+  // --- Dragging ---
   let isDragging = false;
   let offsetX = 0;
   let offsetY = 0;
 
-  header.addEventListener("mousedown", (e) => {
-    // Prevent text selection while dragging
-    e.preventDefault();
+  if (header) {
+    header.addEventListener("mousedown", (e) => {
+      e.preventDefault();
+      isDragging = true;
 
-    isDragging = true;
+      const rect = box.getBoundingClientRect();
+      offsetX = e.clientX - rect.left;
+      offsetY = e.clientY - rect.top;
 
-    const rect = box.getBoundingClientRect();
-    offsetX = e.clientX - rect.left;
-    offsetY = e.clientY - rect.top;
-
-    document.addEventListener("mousemove", onMouseMove);
-    document.addEventListener("mouseup", onMouseUp);
-  });
+      document.addEventListener("mousemove", onMouseMove);
+      document.addEventListener("mouseup", onMouseUp);
+    });
+  }
 
   function onMouseMove(e) {
     if (!isDragging) return;
-
     box.style.left = `${e.clientX - offsetX}px`;
     box.style.top  = `${e.clientY - offsetY}px`;
   }
@@ -33,38 +31,47 @@
     isDragging = false;
     document.removeEventListener("mousemove", onMouseMove);
     document.removeEventListener("mouseup", onMouseUp);
-  }
-  const resizeHandle = box.querySelector(".resizeicon");
 
+    const grid = document.querySelector("div.gridarea");
+    if (grid) {
+      const rect = box.getBoundingClientRect();
+
+      box.style.left = `${rect.left}px`;
+      box.style.top  = `${rect.top}px`;
+      
+    grid.appendChild(box);
+    }
+  }
+
+  // --- Resizing ---
   let isResizing = false;
   let startX, startY, startWidth, startHeight;
 
-  resizeHandle.addEventListener("mousedown", (e) => {
-    e.preventDefault();
-    e.stopPropagation(); // don’t trigger dragging
+  if (resizeHandle) {
+    resizeHandle.addEventListener("mousedown", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      isResizing = true;
 
-    isResizing = true;
+      startX = e.clientX;
+      startY = e.clientY;
 
-    startX = e.clientX;
-    startY = e.clientY;
+      const rect = box.getBoundingClientRect();
+      startWidth = rect.width;
+      startHeight = rect.height;
 
-    const rect = box.getBoundingClientRect();
-    startWidth = rect.width;
-    startHeight = rect.height;
-
-    document.addEventListener("mousemove", onResize);
-    document.addEventListener("mouseup", stopResize);
-  });
+      document.addEventListener("mousemove", onResize);
+      document.addEventListener("mouseup", stopResize);
+    });
+  }
 
   function onResize(e) {
     if (!isResizing) return;
-
     const newWidth = startWidth + (e.clientX - startX);
     const newHeight = startHeight + (e.clientY - startY);
 
-    // Optional minimum size
     let sWidth = Math.max(Math.min(newWidth, 700), 200);
-    sWidth = Math.round(sWidth/100)
+    sWidth = Math.round(sWidth / 100);
     box.style.width = sWidth + "24px";
     // box.style.height = Math.max(newHeight, 150) + "px";
   }
@@ -74,3 +81,4 @@
     document.removeEventListener("mousemove", onResize);
     document.removeEventListener("mouseup", stopResize);
   }
+});

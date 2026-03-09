@@ -1,3 +1,12 @@
+@font-face {
+  font-family: Alpenkreuzer;
+  src: url(Alpenkreuzer.ttf);
+}
+
+.alpenkreuzer {
+  font-family: Alpenkreuzer, sans-serif;
+}
+
 ul.gridarea {
   display: flex;
   flex-direction: column;
@@ -8,9 +17,9 @@ ul.gridarea {
 
 ul.gridarea li {
   margin: 0px;
-  transition: all 0.15s ease;
+  transition: transform 0.15s;
 }
-ul.gridarea li:hover {
+ul.gridarea li:has(.fa-solid):hover {
   transform: scale(0.95);
 }
 
@@ -38,16 +47,46 @@ ul.gridarea li i.fa-solid {
   /* padding: auto; */
 }
 
-ul.gridarea li div:has(textarea.note) {
-  width: 100%;
+ul.gridarea .resizeicon {
+  display: none;
 }
 
-ul.gridarea li textarea.note {
+.textnote {
+  display: flex;
+  flex-direction: column;
+  width: 224px;
+  height: 224px;
+  padding: 0px 12px;
+  background: #fff;
+  border-radius: 6px;
+}
+
+ul.gridarea .textnote textarea.note {
+  height: 212px;
+}
+
+.textnote textarea.note {
   grid-column-end: span 3;
   width: 100%;
   min-height: 176px;
-  padding: 0px 9px 9px 9px;
+  height: 100%;
+  padding: 0px;
   resize: none;
   border: none;
   margin: 0;
+  background: none;
+  font-size: 14px;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+#notePlaceholder {
+  width: 224px;
+  height: 224px;
+  background: #f5f5f5;
+  box-shadow: none;
+  font-family: Alpenkreuzer, sans-serif;
+  font-size: 30px;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none
 }

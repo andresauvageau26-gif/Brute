@@ -6,7 +6,7 @@ body {
     "header header"
     "sidebar menu"
     "sidebar content";
-  grid-template-columns: 240px auto;
+  grid-template-columns: 248px auto;
   grid-template-rows: auto 48px 100%;
   margin: 0px;
   background-color: #f5f5f5;
@@ -20,10 +20,14 @@ body {
   box-sizing: border-box;
 }
 
+.moveable {
+  position: absolute;
+}
+
 header.gridarea {
   grid-area: header;
   display: flex;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #ececec;
   padding: 10px;
   background-color: #fff;
   z-index: 3;
@@ -133,7 +137,7 @@ form.inline-input label input {
 
 ul.gridarea {
   grid-area: sidebar;
-  border-right: 1px solid #e0e0e0;
+  border-right: 1px solid #ececec;
   height: 100%;
   list-style-type: none;
   margin: 0;
@@ -161,10 +165,12 @@ div.groupingcolumn {
   /* width: fit-content; */
   min-width: 324px;
   width: 324px;
-  background-color: #dddddd24;
-  backdrop-filter: brightness(1.25) blur(1.5px);
-  border: 1px solid #ffffff3b;
-  border-radius: 12px;
+  background: #fff;
+  /* background-color: #dddddd24; */
+  /* backdrop-filter: brightness(1.25) blur(1.5px); */
+  /* border: 1px solid #ffffff3b; */
+  /* border-radius: 12px; */
+  border-radius: 6px;
   box-shadow: 0px 1px 6px 0px #0000001c;
   padding: 0px 12px 0px 12px;
   /* transition: all 0.2s ease; */
@@ -199,23 +205,21 @@ span.moveicon::after {
   border-radius: 6px;
 }
 
-div.groupingcolumn span.resizeicon {
-  width: 10px;
-  height: 10px;
-  margin: 0px 0px 2px 100%;
-  border: 0px solid #dcdcdc;
-  border-width: 0px 2px 2px 0px;
-  border-bottom-right-radius: 12px;
-  cursor: nw-resize;
-  transition: all 0.2s ease;
-}
-
-div.groupingcolumn span.resizeicon:active {
+span.resizeicon {
   width: 12px;
   height: 12px;
-  margin-bottom: 0px;
-  border: 0px solid #dcdcdc;
-  border-width: 0px 4px 4px 0px;
+  margin-left: 100%;
+  border-bottom-right-radius: 12px;
+  cursor: nw-resize;
+}
+
+span.resizeicon::after {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 4px;
+  margin: 4px;
+  background:#dcdcdc;
 }
 
 div.groupingcolumn header {
@@ -298,7 +302,7 @@ div.groupingcolumncontent {
   
 div.groupingcolumncontent,
 div.groupingcolumncontent * {
-  transition: all 0.2s ease;
+  /* transition: all 0.2s ease; */
   border-radius: 2px;
   margin: 0;
   font-size: 14px;
@@ -312,6 +316,13 @@ div.groupingcolumn:has(header > label input[type="checkbox"]:checked) div.groupi
   filter: blur(2px);
   /* display: none; */
   z-index: -1000;
+}
+div.groupingcolumncontent .moveicon {
+  display: none;
+}
+
+div.groupingcolumncontent .moveable {
+  position: relative;
 }
 
 div.groupingcolumncontent img {
