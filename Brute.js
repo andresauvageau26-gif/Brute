@@ -4,6 +4,8 @@ document.querySelectorAll(".moveable").forEach((box) => {
 
   // --- Dragging ---
   let isDragging = false;
+  let originalX = 0;
+  let originalY = 0;
   let offsetX = 0;
   let offsetY = 0;
 
@@ -11,6 +13,9 @@ document.querySelectorAll(".moveable").forEach((box) => {
     header.addEventListener("mousedown", (e) => {
       e.preventDefault();
       isDragging = true;
+
+      originalX = box.style.left;
+      originalY = box.style.top;
 
       const rect = box.getBoundingClientRect();
       offsetX = e.clientX - rect.left;
@@ -38,8 +43,12 @@ document.querySelectorAll(".moveable").forEach((box) => {
 
       box.style.left = `${rect.left}px`;
       box.style.top  = `${rect.top}px`;
-      
-    grid.appendChild(box);
+      if (rect.left > 250 && rect.top > 100) {
+         grid.appendChild(box);
+      } else {
+        box.style.left = originalX;
+        box.style.top  = originalY;
+      }
     }
   }
 

@@ -80,3 +80,7 @@ ul.gridarea .textnote textarea.note {
   -ms-user-select: none;
   user-select: none
 }
+
+#notePlaceholder span {
+  height: 25px;
+}
