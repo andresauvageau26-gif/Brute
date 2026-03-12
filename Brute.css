@@ -260,9 +260,9 @@ div.groupingcolumn header label {
 div.groupingcolumn header h1 {
   display: block;
   margin: 0px;
-  font-size: 24px;
-  height: fit-content;
-  transform: translateY(-7px)
+  font-size: 22px;
+  height: 18px;
+  line-height: 18px;
 }
 
 div.groupingcolumn input[type="checkbox"] {
@@ -285,7 +285,7 @@ div.groupingcolumn input[type="checkbox"]~span:hover {
   background: #f5f5f5;
 }
 
-div.groupingcolumn input[type="checkbox"]~span:hover::after {
+div.groupingcolumn input[type="checkbox"]~span::after {
   content: "";
   display: block;
   transform: translateY(3px) translateX(3px);
@@ -293,7 +293,7 @@ div.groupingcolumn input[type="checkbox"]~span:hover::after {
   border: 0px solid #838383;
   border-width: 0px 0px 1px 0px;
   margin: 5.5px 3px 3px 3px;
-  transition: all 0.2s ease;
+  /* transition: all 0.2s ease; */
 }
 
 div.groupingcolumn input[type="checkbox"]:checked~span::after {
