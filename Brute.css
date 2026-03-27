@@ -22,6 +22,11 @@ body {
   box-sizing: border-box;
 }
 
+*:active,
+*:focus {
+  outline: none;
+}
+
 .moveable {
   position: absolute;
 }
@@ -244,7 +249,7 @@ div.groupingcolumn header {
   height: 18px;
   display: flex;
   gap: 8px;
-  align-items: top;
+  align-items: baseline;
   margin-bottom: 12px;
 }
 
@@ -350,7 +355,72 @@ div.groupingcolumncontent img {
   object-fit: cover;
 }
 
-*:active,
-*:focus {
-  outline: none;
+div.header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 224px;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+div.header:hover,
+div.header:active {
+  padding: 0px 12px;
+  backdrop-filter:brightness(1.0)  blur(1.5px);
+}
+
+div.header .moveicon,
+div.header .resizeicon {
+  display: none;
+}
+
+div.header:hover .moveicon,
+div.header:hover .resizeicon,
+div.header:active .moveicon,
+div.header:active .resizeicon {
+  display: block;
+}
+
+div.header h1 {
+  width: 100%;
+  text-align: center;
+  display: block;
+  margin: 0px;
+  font-size: 22px;
+  height: 18px;
+  line-height: 18px;
+}
+
+div.link {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 224px;
+  padding: 0px 12px;
+  border-radius: 6px;
+  background: #fff;
+}
+
+div.link .linkcontent {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  height: 18px;
+}
+
+div.link .linkcontent img {
+  width: 18px;
+  height: 18px;
+  border-radius: 2px;
+}
+
+div.link .linkcontent h1 {
+  display: block;
+  margin: 0px;
+  font-size: 22px;
+  height: 18px;
+  line-height: 18px;
 }
